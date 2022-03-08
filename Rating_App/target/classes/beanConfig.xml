@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+ <bean id="User" class="Case_Study2.Rating_App.User">
+ <property name="username" value="smita"></property>
+ <property name="emailid" value="smita@gmail.com"></property>
+ <property name="password" value="password"></property>
+ <property name="mobileno" value="229977"></property>
+ </bean>
+ 
+ <bean id="comment" class="Case_Study2.Rating_App.Comment">
+ <property name="comment_id" value="101"></property>
+ <property name="comment_text" value="Nice"></property>
+ <property name="Likes" value="100"></property>
+ <property name="Dislike" value="10"></property>
+ <property name="report" value="false"></property>
+ </bean>
+ 
+ <bean id="review" class="Case_Study2.Rating_App.Review">
+ <property name="reviewid" value="101"></property>
+ <property name="review_text" value="Reviewed"></property>
+ <property name="financial_Product_reviewed" value="Reviewed"></property>
+ <property name="comments">
+ <list>
+ <ref bean="comments1"/>
+ <ref bean="comments2"/>
+ </list>
+ </property>
+ </bean>
+ 
+ <bean id="comments1" class="Case_Study2.Rating_App.Comment">
+ <property name="comment_id" value="102"></property>
+ <property name="comment_text" value="Good"></property>
+ <property name="Likes" value="50"></property>
+ <property name="Dislike" value="6"></property>
+ <property name="report" value="True"></property>
+ </bean>
+ 
+ 
+ <bean id="comments2" class="Case_Study2.Rating_App.Comment">
+ <property name="comment_id" value="103"></property>
+ <property name="comment_text" value="Bad"></property>
+ <property name="Likes" value="6"></property>
+ <property name="Dislike" value="10"></property>
+ <property name="report" value="True"></property>
+ </bean>
+ 
+ <bean id="fp" class="Case_Study2.Rating_App.Financial_product">
+ <property name="financial_product" value="10"></property>
+ <property name="financial_product_name" value="mobile"></property>
+ <property name="rating" value="10"></property>
+ <constructor-arg ref="review"></constructor-arg>
+ 
+ </bean>
+ 
+ </beans>
